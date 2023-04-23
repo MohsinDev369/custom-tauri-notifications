@@ -9,9 +9,9 @@ async function greet() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
+  greetInputEl = document.querySelector("#toast-input");
+  greetMsgEl = document.querySelector("#toast-msg");
   document
-    .querySelector("#greet-button")
+    .querySelector("#toast-button")
     .addEventListener("click", () => greet());
 });
