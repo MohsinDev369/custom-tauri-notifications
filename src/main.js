@@ -1,11 +1,21 @@
-const { invoke } = window.__TAURI__.tauri;
+const { isPermissionGranted, requestPermission, sendNotification } =
+  window.__TAURI__.notification;
 
+  //ask for permission for notification
+  let permissionGranted = await isPermissionGranted();
+  if (!permissionGranted) {
+    const permission = await requestPermission();
+    permissionGranted = permission === "granted";
+}
+  
 let greetInputEl;
 let greetMsgEl;
 
 async function greet() {
   // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-  greetMsgEl.textContent = await invoke("greet", { name: greetInputEl.value });
+  if (permissionGranted) {
+    sendNotification({ title: "mohsinDev369", body: greetInputEl.value });
+  }
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -15,3 +25,6 @@ window.addEventListener("DOMContentLoaded", () => {
     .querySelector("#toast-button")
     .addEventListener("click", () => greet());
 });
+
+
+
