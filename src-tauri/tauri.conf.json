@@ -7,8 +7,8 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "tauri-app",
-    "version": "0.0.0"
+    "productName": "mohsinDev369 Notifier",
+    "version": "0.0.1"
   },
   "tauri": {
     "allowlist": {
